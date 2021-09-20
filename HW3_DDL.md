@@ -18,7 +18,7 @@ constraint SGK primary key(Singer_id, Genre_id)
 create table if not exists album(
 id serial primary key,
 Title varchar(40) not null,
-Year date
+Year integer check (Year >0 and Year <=9999)
 );
 
 create table if not exists track(
