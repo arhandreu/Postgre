@@ -29,9 +29,8 @@ Year date
 
 create table singer_album_track(
 Singer_id integer references singer(id),
-Track_id integer unique references track(id),
-Album_id integer references album(id), 
-constraint TSK primary key(Track_id, Singer_id)
+Track_id integer primary key references track(id),
+Album_id integer references album(id)
 );
 
 create table if not exists collection(
