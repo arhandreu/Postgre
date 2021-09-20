@@ -37,7 +37,7 @@ Album_id integer references album(id)
 create table if not exists collection(
 id serial primary key,
 Title varchar(40) not null,
-Year integer check (Year >= 0 and Year <=9999)
+Year integer check (Year >0 and Year <=9999)
 );
 
 create table track_collection(
