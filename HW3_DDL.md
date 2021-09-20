@@ -18,19 +18,15 @@ constraint SGK primary key(Singer_id, Genre_id)
 create table if not exists track(
 id serial primary key,
 Title varchar(40) not null,
-Duration integer
+Duration integer,
+Singer_id integer references singer(id),
+Album_id integer references album(id),
 );
 
 create table if not exists album(
 id serial primary key,
 Title varchar(40) not null,
 Year date
-);
-
-create table singer_album_track(
-Singer_id integer references singer(id),
-Track_id integer primary key references track(id),
-Album_id integer references album(id)
 );
 
 create table if not exists collection(
