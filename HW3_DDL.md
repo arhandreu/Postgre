@@ -28,10 +28,10 @@ Year date
 );
 
 create table singer_album_track(
-id serial primary key,
 Singer_id integer references singer(id),
 Track_id integer unique references track(id),
-Album_id integer references album(id)
+Album_id integer references album(id), 
+constraint TSK primary key(Track_id, Singer_id)
 );
 
 create table if not exists collection(
