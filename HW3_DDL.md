@@ -25,9 +25,14 @@ create table if not exists track(
 id serial primary key,
 Title varchar(40) not null,
 Duration integer,
-Singer_id integer references singer(id),
 Album_id integer references album(id)
 );
+
+create table if not exists singer_album(
+Singer_id integer references singer(id),
+Album_id integer refernces album(id),
+constraint SAK primary key(Singer_id, Album_id)
+)
 
 create table if not exists collection(
 id serial primary key,
