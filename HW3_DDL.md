@@ -30,7 +30,7 @@ Album_id integer references album(id)
 
 create table if not exists singer_album(
 Singer_id integer references singer(id),
-Album_id integer refernces album(id),
+Album_id integer references album(id),
 constraint SAK primary key(Singer_id, Album_id)
 )
 
@@ -40,7 +40,7 @@ Title varchar(40) not null,
 Year integer check (Year >0 and Year <=9999)
 );
 
-create table track_collection(
+create table if not exists track_collection(
 Track_id integer references track(id),
 Collection_id integer references collection(id),
 constraint TCK primary key(Track_id, Collection_id) 
